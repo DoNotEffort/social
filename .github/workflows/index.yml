@@ -17,7 +17,11 @@ jobs:
         php-version: '8.0'
     - uses: actions/checkout@v3
     - name: Install Dependencies
+<<<<<<< HEAD
       run: composer install --ignore-platform-reqs -q --no-ansi --no-interaction --no-scripts --no-progress
+=======
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+>>>>>>> parent of b8d3299... ignore platfomr parameters added in github action file
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     # - name: Execute tests (Unit and Feature tests) via PHPUnit
