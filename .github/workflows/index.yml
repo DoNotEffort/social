@@ -17,11 +17,12 @@ jobs:
         php-version: '8.1'
         extensions: mongodb
     - uses: actions/checkout@v3
+    - run: echo "$_ENV"
     - name: Copy .env
-      run: 'echo "$_ENV" > \.env'
+      run: echo "$ENVIRONMENT_VARIABLES" > .env
       shell: bash
       env:
-        SSH_KEY: ${{secrets._ENV}}
+        ENVIRONMENT_VARIABLES: ${{secrets._ENV}}
     - name: Install Dependencies
       run: composer update --no-ansi --no-interaction --no-scripts --no-progress
     - name: Directory Permissions
