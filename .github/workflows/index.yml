@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-defaults:
-  run:
-    working-directory: /var/www/laravel
-
 jobs:
   laravel-tests:
 
@@ -21,8 +17,6 @@ jobs:
         php-version: '8.1'
         extensions: mongodb
     - uses: actions/checkout@v3
-      with:
-          path: '/var/www/laravel'
     - name: Copy .env
       run: 'echo "$_ENV" > .env'
       shell: bash
