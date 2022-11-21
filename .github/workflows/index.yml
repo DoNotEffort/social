@@ -17,6 +17,7 @@ jobs:
         php-version: '8.1'
         extensions: mongodb
     - uses: actions/checkout@v3
+    - run: ls -la
     - name: Install Dependencies
       run: composer update --no-ansi --no-interaction --no-scripts --no-progress
     - name: Directory Permissions
