@@ -16,10 +16,10 @@ jobs:
         php-version: '8.1'
         extensions: mongodb
     - uses: actions/checkout@v3
-    # - name: Create .env 🤫
-    #   uses: DeveloperRic/action-create-env@v1.0.2 # set this to the version of your choice
-    #   with:
-    #     full_text: ${{secrets._ENV}}
+    - name: Create .env 🤫
+      uses: DeveloperRic/action-create-env@v1.0.2 # set this to the version of your choice
+      with:
+        full_text: ${{secrets._ENV}}
     - name: Install Dependencies
       run: composer update --no-ansi --no-interaction --no-scripts --no-progress
     - name: Directory Permissions
