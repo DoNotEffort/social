@@ -21,14 +21,14 @@ class ApiKey
         $API_TOKEN = $request->header('Authorization');
 
         if ($API_TOKEN) {
-            $request->user = User::where('api_token', $API_TOKEN)->first();
+            $request->user = User::where('api_key', $API_TOKEN)->first();
 
             if (!$request->user)
                 return response()->json([
                     'message' => 'Unauthorized token'
                 ], 401);
         }
-        
+
         return $next($request);
     }
 }
