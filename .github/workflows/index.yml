@@ -15,7 +15,7 @@ jobs:
       with:
         php-version: '8.1'
         extensions: mongodb
-    # - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     # - name: Create .env 🤫
     #   uses: DeveloperRic/action-create-env@v1.0.2 # set this to the version of your choice
     #   with:
