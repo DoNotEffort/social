@@ -18,12 +18,12 @@ class GetUser
      */
     public function handle(Request $request, Closure $next)
     {
-        $request->user=(object) [
-            "id"=>1,
-            "name"=>"John Doe"
-        ];
+        // $request->user=(object) [
+        //     "id"=>1,
+        //     "name"=>"John Doe"
+        // ];
 
-        $request->socialQuery=User::where('user_id',$request->user->id);
+        // $request->socialQuery=User::where('user_id',$request->user->id);
 
         if (env('APP_ENV') === 'production') {
             $request->PLATFORM = $request->segment(1);

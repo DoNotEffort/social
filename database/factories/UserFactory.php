@@ -16,6 +16,7 @@ class UserFactory extends Factory
     {
         return [
             'social' => (object) [],
+            'api_key' => $this->faker->unique()->sha256,
         ];
     }
 

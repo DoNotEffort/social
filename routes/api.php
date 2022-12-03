@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use \App\Http\Controllers\TokenController;
 use \App\Http\Controllers\TwitterController;
 use \App\Http\Controllers\TelegramController;
 
@@ -16,6 +18,10 @@ use \App\Http\Controllers\TelegramController;
 |
 */
 
+//AUTH
+Route::group(['prefix' => 'tokens'], function () {
+    Route::post('create', [TokenController::class, 'create']);
+});
 
 //COLLECTIVE
 Route::group(['prefix' => 'collective', 'middleware' => ['collective', 'collective.response.modify']], function () {

@@ -18,7 +18,9 @@ class CreateUsersTable extends Migration
             $table->foreign('user_id')->unique();
             $table->object('social');
             $table->object('temp_social');
-            $table->timestamps();
+            $table->string('api_key')->unique();
+            $table->unsignedInteger('created_at');
+            $table->unsignedInteger('updated_at');
         });
     }
 

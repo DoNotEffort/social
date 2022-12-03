@@ -24,7 +24,7 @@ class CollectiveMiddleware
 
         $social=$request->social;
 
-        $user=$request->socialQuery->first();
+        $user= $request->user;
 
 
 

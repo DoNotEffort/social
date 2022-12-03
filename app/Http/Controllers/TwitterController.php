@@ -19,7 +19,7 @@ class TwitterController extends Controller
             'oauth_token_secret'=>$token['oauth_token_secret'],
         ];
 
-        $DB_USER= request()->socialQuery->select('temp_social')->firstOrFail();
+        $DB_USER= request()->user;
 
         $twitter=$DB_USER->temp_social;
         $twitter["twitter"]=$tokens;
@@ -37,7 +37,8 @@ class TwitterController extends Controller
 
     function add(){
 
-        $DB_USER=(object) request()->socialQuery->select(["temp_social","social"])->first();
+        $DB_USER= request()->user;
+        
 
         if(!array_key_exists("twitter",$DB_USER->temp_social)){
             return response()->json([

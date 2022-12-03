@@ -20,7 +20,7 @@ class TwitterMiddleware
     {
         $accounts = request()->accounts;
           
-        $DB_USER=(object) $request->socialQuery->select("social")->first();
+        $DB_USER= $request->user;
         $request->app =[];
         if ($accounts) {
             foreach (array_keys($accounts) as $accountId) {

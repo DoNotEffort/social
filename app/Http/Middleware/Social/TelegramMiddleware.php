@@ -22,7 +22,7 @@ class TelegramMiddleware
     {
         $accounts = request()->accounts;
 
-        $user=$request->socialQuery->select("social")->first();
+        $user= $request->user;
 
         $request->app =[];
         foreach (array_keys($accounts) as $accountId) {

@@ -1,4 +1,4 @@
-name: Laravel
+name: Deploy to DO
 
 on:
   push:
@@ -7,20 +7,19 @@ on:
     branches: [ "master" ]
 
 jobs:
-  laravel-tests:
-
+  deploy:
     runs-on: self-hosted
-
+    environment: production
     steps:
     - uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
         extensions: mongodb
-    - uses: actions/checkout@v3
-    - name: Create .env 🤫
-      uses: DeveloperRic/action-create-env@v1.0.2 # set this to the version of your choice
-      with:
-        full_text: ${{secrets._ENV}}
+    # - uses: actions/checkout@v3
+    # - name: Create .env 🤫
+    #   uses: DeveloperRic/action-create-env@v1.0.2 # set this to the version of your choice
+    #   with:
+    #     full_text: ${{secrets._ENV}}
     - name: Install Dependencies
       run: composer update --no-ansi --no-interaction --no-scripts --no-progress
     - name: Directory Permissions

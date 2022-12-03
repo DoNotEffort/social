@@ -26,7 +26,7 @@ class TelegramController extends Controller
         $DBData =$responseDataForDB;
         $DBData["token"]=$TOKEN;
 
-        $DB_USER= request()->socialQuery->select('social')->first();
+        $DB_USER= request()->user;
         $social = $DB_USER->social;
 
         if(Arr::exists($social,"telegram") && Arr::exists($social["telegram"],$DBData["id"])){
